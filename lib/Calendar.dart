@@ -21,23 +21,38 @@ class _CalendarState extends State<Calendar> {
     return Scaffold(
       appBar:
       AppBar(
-        title: Text('Календарь'),
+        leading:
+        IconButton(
+          iconSize: 30,
+          icon: Icon(Icons.menu,color: Colors.white,),
+          onPressed: (){},
+        ),
+        elevation: 0,
         centerTitle: true,
+        backgroundColor: Color(0xFF8FC0C5),
       ),
       body: Column(
+
         children: [
-          TableCalendar(
-            focusedDay: DateTime.now(),
-            firstDay: DateTime(1990),
-            lastDay: DateTime(2050),
-            calendarFormat: format,
-            onFormatChanged: (CalendarFormat _format){
-              setState(() {
-                format = _format;
-              });
-            },
-            startingDayOfWeek: StartingDayOfWeek.monday,
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF316773),
+            ),
+            child: TableCalendar(
+
+              focusedDay: DateTime.now(),
+              firstDay: DateTime(1990),
+              lastDay: DateTime(2050),
+              calendarFormat: format,
+              onFormatChanged: (CalendarFormat _format){
+                setState(() {
+                  format = _format;
+                });
+              },
+              startingDayOfWeek: StartingDayOfWeek.monday,
+            ),
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
